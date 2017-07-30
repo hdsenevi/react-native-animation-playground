@@ -1,0 +1,63 @@
+{
+  "extends": ["standard", "plugin:react/recommended", "airbnb"],
+  "rules": {
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxBOF": 0, "maxEOF": 1 }],
+    "arrow-parens": ["error", "always"],
+    "indent": [2, 4, {
+      "SwitchCase": 1
+    }],
+    "semi": [2, "always"],
+    "react/jsx-indent": [2, 4],
+    "react/jsx-indent-props": [2, 4],
+    // make 'max-leg' to 100 after restructuring presenstational container pattern
+    "max-len": [2, 200],
+
+    // Turned off but would like to incrementally turn on as part of tech debt
+    "class-methods-use-this": "off",
+    "react/no-string-refs": "warn",
+    "react/no-find-dom-node": "warn",
+    "import/no-named-as-default": "off",
+    "import/no-webpack-loader-syntax": "off",
+    "react/require-default-props": "off",
+    "import/prefer-default-export": "off",
+    "import/no-named-as-default-member": "off",
+    // Had to take out 'array' and 'object' out of forbid list. Is there a better approach to this?
+    // maybe 'PropTypes.shape'?. This is nessesary because of react/prop-types
+    "react/forbid-prop-types": [2, { "forbid": ["any"] }],
+
+    // Turn off
+    "linebreak-style": "off", // LF vs CRLF, doesn't matter
+    "react/jsx-filename-extension": "off", // Spec files are included
+    "import/extensions": "off", // Issues with webpack
+    "import/no-extraneous-dependencies": "off", // Issues with webpack
+  },
+  "plugins": [
+    "react", "json", "jest"
+  ],
+  "settings": {
+    "react": {
+      "pragma": "React", // Pragma to use, default to "React"
+      "version": "15.3" // React version, default to the latest React stable release
+    },
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.base.js"
+      }
+    },
+    "import/resolve": {
+      "moduleDirectory": ["node_modules", "src", "settings/jest"]
+    }
+  },
+  "globals": {
+    "__DEV__": true,
+    "__PROD__": true
+  },
+  "env": {
+    "jasmine": true,
+    "jest": true
+  },
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "root": true
+}

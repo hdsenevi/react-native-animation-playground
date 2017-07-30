@@ -5,7 +5,6 @@
 import React from 'react';
 
 import {
-    Platform,
     ScrollView,
     StyleSheet,
     TouchableOpacity,
@@ -14,14 +13,19 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import SimpleStack from './SimpleStack';
-import SampleText from './SampleText';
+import SimpleAnimation from './SimpleAnimation/SimpleAnimation';
+import AnimatedButtonScreen from './AnimatedButton/AnimatedButtonScreen';
 
 const ExampleRoutes = {
-    SimpleStack: {
+    SimpleAnimation: {
         name: 'Animated opacity/height',
-        description: 'animated-timing-and-easing-to-animate-styles-of-a-react-native-view',
-        screen: SimpleStack,
+        description: 'opacity/height animated view',
+        screen: SimpleAnimation,
+    },
+    AnimatedButton: {
+        name: 'Animated Button',
+        description: 'animated button with shake',
+        screen: AnimatedButtonScreen,
     },
 };
 

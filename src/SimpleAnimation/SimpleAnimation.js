@@ -2,15 +2,6 @@
  * Created by Shanaka Senevirathne (@hdsenevi) on 29/7/17.
  */
 
-// import React from 'react';
-import {
-    ScrollView,
-} from 'react-native';
-import {
-    StackNavigator,
-} from 'react-navigation';
-import SampleText from './SampleText';
-
 import React, { Component } from 'react';
 import {
     Text,
@@ -20,30 +11,7 @@ import {
     Easing,
 } from 'react-native';
 
-//
-// const MyNavScreen = ({ navigation, banner }) => (
-//     <ScrollView>
-//         <SampleText>{banner}</SampleText>
-//     </ScrollView>
-// );
-//
-// const MyHomeScreen = ({ navigation }) => (
-//     <MyNavScreen
-//         // banner="Home Screen"
-//         // navigation={navigation}
-//     />
-// );
-// MyHomeScreen.navigationOptions = {
-//     title: 'Welcome',
-// };
-
-// export const SimpleStack = StackNavigator({
-//     Home: {
-//         screen: MyHomeScreen,
-//     },
-// });
-
-class App extends Component {
+class SimpleAnimation extends Component {
     componentWillMount() {
         this.animatedValue = new Animated.Value(100);
     }
@@ -89,7 +57,7 @@ const styles = {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-    }
+    },
 };
 
-export default App;
+export default SimpleAnimation;

@@ -1,37 +1,25 @@
 {
-  "name": "AnimationPlayground",
-  "version": "0.0.1",
-  "private": true,
+  "name": "animationplayground",
+  "version": "1.0.0",
+  "main": "entry.js",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
   },
   "dependencies": {
-    "eslint-plugin-node": "^5.1.1",
-    "react": "16.0.0-alpha.12",
-    "react-native": "0.46.4",
-    "react-navigation": "^1.0.0-beta.11"
+    "@react-navigation/native": "^6.1.6",
+    "@react-navigation/native-stack": "^6.9.12",
+    "expo": "~48.0.10",
+    "expo-status-bar": "~1.4.4",
+    "react": "18.2.0",
+    "react-native": "0.71.6",
+    "react-native-safe-area-context": "4.5.0",
+    "react-native-screens": "~3.20.0"
   },
   "devDependencies": {
-    "babel-jest": "20.0.3",
-    "babel-preset-react-native": "2.1.0",
-    "eslint": "3.19.0",
-    "eslint-config-airbnb": "^15.0.1",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-loader": "^1.8.0",
-    "eslint-plugin-import": "^2.6.1",
-    "eslint-plugin-jest": "^20.0.3",
-    "eslint-plugin-json": "^1.2.0",
-    "eslint-plugin-jsx-a11y": "^5.0.0",
-    "eslint-plugin-prefer-object-spread": "^1.2.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-react": "^7.1.0",
-    "eslint-plugin-react-native": "^2.3.2",
-    "eslint-plugin-standard": "^3.0.1",
-    "jest": "20.0.4",
-    "react-test-renderer": "16.0.0-alpha.12"
+    "@babel/core": "^7.20.0"
   },
-  "jest": {
-    "preset": "react-native"
-  }
+  "private": true
 }

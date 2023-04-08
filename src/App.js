@@ -11,7 +11,8 @@ import {
     Text,
     View,
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import SimpleAnimation from './SimpleAnimation/SimpleAnimation';
 import AnimatedButtonScreen from './AnimatedButton/AnimatedButtonScreen';
@@ -29,39 +30,44 @@ const ExampleRoutes = {
     },
 };
 
-const MainScreen = ({ navigation }) => (
-    <ScrollView>
-        {Object.keys(ExampleRoutes).map((routeName: string) =>
-            <TouchableOpacity
-                key={routeName}
-                onPress={() => {
-                    const { path, params, screen } = ExampleRoutes[routeName];
-                    const { router } = screen;
-                    const action = path && router.getActionForPathAndParams(path, params);
-                    navigation.navigate(routeName, {}, action);
-                }}
-            >
-                <View style={styles.item}>
-                    <Text style={styles.title}>{ExampleRoutes[routeName].name}</Text>
-                    <Text style={styles.description}>{ExampleRoutes[routeName].description}</Text>
-                </View>
-            </TouchableOpacity>
-        )}
-    </ScrollView>
-);
+function HomeScreen({ navigation }) {
+    return (
+        <ScrollView>
+            {Object.keys(ExampleRoutes).map((routeName: string) =>
+                <TouchableOpacity
+                    key={routeName}
+                    onPress={() => {
+                        const { path, params, screen } = ExampleRoutes[routeName];
+                        const { router } = screen;
+                        const action = path && router.getActionForPathAndParams(path, params);
+                        navigation.navigate(routeName, {}, action);
+                    }}
+                >
+                    <View style={styles.item}>
+                        <Text style={styles.title}>{ExampleRoutes[routeName].name}</Text>
+                        <Text style={styles.description}>{ExampleRoutes[routeName].description}</Text>
+                    </View>
+                </TouchableOpacity>
+            )}
+        </ScrollView>
+    );
+}
 
-const AppNavigator = StackNavigator({
-    ...ExampleRoutes,
-    Index: {
-        screen: MainScreen,
-    },
-}, {
-    initialRouteName: 'Index',
-    headerMode: 'float',
-    mode: 'card',
-});
+const App = () => {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="SimpleAnimation" component={SimpleAnimation} />
+                <Stack.Screen name="AnimatedButton" component={AnimatedButtonScreen} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
+}
 
-export default () => <AppNavigator />;
+const Stack = createNativeStackNavigator();
+
+export default App;
 
 const styles = StyleSheet.create({
     item: {
